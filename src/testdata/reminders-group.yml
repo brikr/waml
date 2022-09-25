@@ -1,0 +1,1012 @@
+---
+wa:
+  s: 4.1.4
+  m: d
+  d:
+    arcLength: 360
+    borderBackdrop: Blizzard Tooltip
+    xOffset: 0
+    yOffset: 0
+    anchorPoint: CENTER
+    borderColor:
+      - 0
+      - 0
+      - 0
+      - 1
+    rowSpace: 1
+    actions:
+      start: []
+      init: []
+      finish: []
+    triggers:
+      - trigger:
+          debuffType: HELPFUL
+          type: aura2
+          spellIds: []
+          subeventSuffix: _CAST_START
+          unit: player
+          names: []
+          event: Health
+          subeventPrefix: SPELL
+        untrigger: []
+    columnSpace: 1
+    radius: 200
+    animation:
+      start:
+        type: none
+        easeStrength: 3
+        duration_type: seconds
+        easeType: none
+      main:
+        type: none
+        easeStrength: 3
+        duration_type: seconds
+        easeType: none
+      finish:
+        type: none
+        easeStrength: 3
+        duration_type: seconds
+        easeType: none
+    align: CENTER
+    stagger: 0
+    subRegions: []
+    load:
+      size:
+        multi: []
+      spec:
+        multi: []
+      class:
+        multi: []
+      talent:
+        multi: []
+    useLimit: false
+    backdropColor:
+      - 1
+      - 1
+      - 1
+      - 0.5
+    animate: false
+    scale: 1
+    groupIcon: 1323037
+    border: false
+    borderEdge: Square Full White
+    regionType: dynamicgroup
+    borderSize: 2
+    limit: 5
+    selfPoint: CENTER
+    space: 5
+    internalVersion: 53
+    sort: none
+    constantFactor: RADIUS
+    borderInset: 1
+    borderOffset: 4
+    authorOptions: []
+    tocversion: 90207
+    id: Reminders
+    gridWidth: 5
+    frameStrata: 1
+    anchorFrameType: SCREEN
+    gridType: RD
+    uid: rAoo4ZTq(HM
+    config: []
+    grow: VERTICAL
+    fullCircle: true
+    conditions: []
+    information: []
+    rotation: 0
+  c:
+    - outline: OUTLINE
+      wagoID: mGFUsP0Jh
+      yOffset: -10.00000095367432
+      anchorPoint: CENTER
+      displayText_format_p_time_format: 0
+      customTextUpdate: event
+      url: https://wago.io/mGFUsP0Jh/3
+      actions:
+        start:
+          do_sound: false
+          message_type: INSTANCE_CHAT
+          do_message: false
+          sound: Interface\AddOns\WeakAuras\Media\Sounds\RobotBlip.ogg
+          do_custom: false
+        init: []
+        finish: []
+      triggers:
+        '1':
+          trigger:
+            rem: '10'
+            useGroup_count: true
+            subeventPrefix: SPELL
+            group_count: '0'
+            group_countOperator: ==
+            showClones: false
+            type: aura2
+            auraspellids:
+              - '20707'
+            match_count: '0'
+            subeventSuffix: _CAST_START
+            event: Health
+            unit: raid
+            useExactSpellId: true
+            useMatch_count: false
+            spellIds: []
+            match_countOperator: ==
+            remOperator: <
+            names: []
+            debuffType: HELPFUL
+            useRem: false
+          untrigger: []
+        '2':
+          trigger:
+            type: spell
+            use_genericShowOn: true
+            event: Action Usable
+            unit: player
+            realSpellName: Soulstone
+            use_spellName: true
+            debuffType: HELPFUL
+            genericShowOn: showOnCooldown
+            use_inverse: false
+            use_track: true
+            spellName: 20707
+          untrigger: []
+        disjunctive: all
+        activeTriggerMode: -10
+      displayText_format_p_format: timed
+      internalVersion: 53
+      selfPoint: BOTTOM
+      font: LEMONMILK-Regular
+      version: 3
+      subRegions:
+        - type: subbackground
+      load:
+        ingroup:
+          single: group
+          multi:
+            raid: true
+        use_encounter: false
+        instance_type: []
+        class:
+          single: WARLOCK
+          multi: []
+        use_ingroup: false
+        use_class: true
+        use_zone: false
+        spec:
+          single: 2
+          multi:
+            '2': true
+        use_size: false
+        difficulty: []
+        use_combat: false
+        talent:
+          multi: []
+        size:
+          multi:
+            twenty: true
+            flexible: true
+      fontSize: 20
+      shadowXOffset: 1
+      regionType: text
+      wordWrap: WordWrap
+      xOffset: 0
+      fixedWidth: 200
+      displayText: Soulstone a healer you absolute buffoon
+      displayText_format_p_time_precision: 1
+      animation:
+        start:
+          easeStrength: 3
+          type: none
+          duration_type: seconds
+          easeType: none
+        main:
+          colorR: 1
+          scalex: 1
+          alphaType: alphaPulse
+          colorB: 1
+          colorG: 1
+          alphaFunc: |
+            function(progress, start, delta)
+                local angle = (progress * 2 * math.pi) - (math.pi / 2)
+                return start + (((math.sin(angle) + 1)/2) * delta)
+            end
+          use_translate: false
+          use_alpha: true
+          type: custom
+          easeType: none
+          translateFunc: >
+            function(progress, startX, startY, deltaX, deltaY)
+                return startX + (progress * deltaX), startY + (progress * deltaY)
+            end
+          scaley: 1
+          alpha: 0
+          y: 0
+          x: 0
+          duration_type: seconds
+          colorA: 1
+          rotate: 0
+          easeStrength: 3
+          translateType: straightTranslate
+          duration: '1.5'
+        finish:
+          easeStrength: 3
+          type: none
+          duration_type: seconds
+          easeType: none
+      displayText_format_p_time_dynamic_threshold: 60
+      uid: IdIMAtcZUOD
+      justify: LEFT
+      tocversion: 90207
+      id: Soulstone Reminder
+      semver: 1.0.2
+      frameStrata: 1
+      anchorFrameType: SCREEN
+      shadowYOffset: -1
+      config:
+        option1: false
+      automaticWidth: Auto
+      color:
+        - 0.5529411764705883
+        - 0.3803921568627451
+        - 1
+        - 1
+      shadowColor:
+        - 0
+        - 0
+        - 0
+        - 1
+      conditions: []
+      information: []
+      authorOptions:
+        - type: toggle
+          default: false
+          key: option1
+          useDesc: false
+          name: Option 1
+          width: 1
+    - outline: OUTLINE
+      xOffset: 0
+      displayText_format_p_time_dynamic_threshold: 60
+      shadowYOffset: -1
+      anchorPoint: CENTER
+      displayText_format_p_time_format: 0
+      customTextUpdate: event
+      automaticWidth: Auto
+      actions:
+        start:
+          sound: Interface\AddOns\WeakAuras\Media\Sounds\RobotBlip.ogg
+          do_sound: false
+        init: []
+        finish: []
+      triggers:
+        '1':
+          trigger:
+            useGroup_count: true
+            duration: '1'
+            genericShowOn: showOnActive
+            use_unit: true
+            group_count: '0'
+            use_HasPet: false
+            use_mounted: false
+            type: aura2
+            auraspellids:
+              - '53563'
+            names: []
+            event: Conditions
+            unit: group
+            subeventPrefix: SPELL
+            debuffType: HELPFUL
+            spellIds: []
+            unevent: auto
+            useName: false
+            subeventSuffix: _CAST_START
+            useExactSpellId: true
+            group_countOperator: ==
+          untrigger: []
+        disjunctive: any
+        activeTriggerMode: 1
+      displayText_format_p_format: timed
+      internalVersion: 53
+      wordWrap: WordWrap
+      font: LEMONMILK-Regular
+      subRegions:
+        - type: subbackground
+      load:
+        use_size: false
+        class_and_spec:
+          single: 258
+          multi:
+            '258': true
+        talent:
+          multi: []
+        use_vehicle: false
+        class:
+          single: PALADIN
+          multi: []
+        use_class: true
+        use_spellknown: true
+        spec:
+          multi: []
+        use_alive: true
+        spellknown: 53563
+        size:
+          multi:
+            ten: true
+            twentyfive: true
+            fortyman: true
+            ratedpvp: true
+            party: true
+            ratedarena: true
+            arena: true
+            twenty: true
+            flexible: true
+      fontSize: 20
+      shadowXOffset: 1
+      regionType: text
+      yOffset: -10.00000095367432
+      displayText_format_p_time_precision: 1
+      selfPoint: BOTTOM
+      fixedWidth: 200
+      justify: LEFT
+      tocversion: 90207
+      id: Missing beacon 1
+      authorOptions: []
+      frameStrata: 1
+      anchorFrameType: SCREEN
+      displayText: Beacon a motherfucker, motherfucker
+      uid: VRQewhMm(mZ
+      config: []
+      color:
+        - 0.5529411764705883
+        - 0.3803921568627451
+        - 1
+        - 1
+      shadowColor:
+        - 0
+        - 0
+        - 0
+        - 1
+      conditions: []
+      information: []
+      animation:
+        start:
+          type: none
+          easeStrength: 3
+          duration_type: seconds
+          easeType: none
+        main:
+          colorR: 1
+          scalex: 1
+          alphaType: alphaPulse
+          colorB: 1
+          colorG: 1
+          alphaFunc: |
+            function(progress, start, delta)
+                local angle = (progress * 2 * math.pi) - (math.pi / 2)
+                return start + (((math.sin(angle) + 1)/2) * delta)
+            end
+          use_translate: false
+          use_alpha: true
+          type: custom
+          easeType: none
+          translateFunc: >
+            function(progress, startX, startY, deltaX, deltaY)
+                return startX + (progress * deltaX), startY + (progress * deltaY)
+            end
+          scaley: 1
+          alpha: 0
+          y: 0
+          x: 0
+          duration: '1.5'
+          translateType: straightTranslate
+          easeStrength: 3
+          rotate: 0
+          colorA: 1
+          duration_type: seconds
+        finish:
+          type: none
+          easeStrength: 3
+          duration_type: seconds
+          easeType: none
+    - outline: OUTLINE
+      xOffset: 0
+      displayText_format_p_time_dynamic_threshold: 60
+      yOffset: -10.00000095367432
+      anchorPoint: CENTER
+      displayText_format_p_time_format: 0
+      customTextUpdate: event
+      automaticWidth: Auto
+      actions:
+        start:
+          sound: Interface\AddOns\WeakAuras\Media\Sounds\RobotBlip.ogg
+          do_sound: false
+        finish: []
+        init: []
+      triggers:
+        '1':
+          trigger:
+            useGroup_count: true
+            duration: '1'
+            genericShowOn: showOnActive
+            names: []
+            group_count: '0'
+            use_HasPet: false
+            debuffType: HELPFUL
+            useName: false
+            subeventSuffix: _CAST_START
+            group_countOperator: ==
+            event: Conditions
+            auraspellids:
+              - '156910'
+            useExactSpellId: true
+            type: aura2
+            spellIds: []
+            unevent: auto
+            subeventPrefix: SPELL
+            use_unit: true
+            unit: group
+            use_mounted: false
+          untrigger: []
+        '2':
+          trigger:
+            useGroup_count: true
+            duration: '1'
+            genericShowOn: showOnActive
+            names: []
+            group_count: '1'
+            use_HasPet: false
+            use_mounted: false
+            useName: false
+            useExactSpellId: true
+            unit: group
+            event: Conditions
+            subeventPrefix: SPELL
+            use_unit: true
+            debuffType: HELPFUL
+            spellIds: []
+            unevent: auto
+            type: aura2
+            subeventSuffix: _CAST_START
+            auraspellids:
+              - '53563'
+            group_countOperator: ==
+          untrigger: []
+        disjunctive: all
+        activeTriggerMode: 1
+      displayText_format_p_format: timed
+      internalVersion: 53
+      animation:
+        start:
+          easeStrength: 3
+          type: none
+          duration_type: seconds
+          easeType: none
+        main:
+          colorR: 1
+          scalex: 1
+          alphaType: alphaPulse
+          colorB: 1
+          colorG: 1
+          alphaFunc: |
+            function(progress, start, delta)
+                local angle = (progress * 2 * math.pi) - (math.pi / 2)
+                return start + (((math.sin(angle) + 1)/2) * delta)
+            end
+          use_translate: false
+          use_alpha: true
+          type: custom
+          easeType: none
+          translateFunc: >
+            function(progress, startX, startY, deltaX, deltaY)
+                return startX + (progress * deltaX), startY + (progress * deltaY)
+            end
+          scaley: 1
+          alpha: 0
+          y: 0
+          x: 0
+          duration_type: seconds
+          colorA: 1
+          rotate: 0
+          easeStrength: 3
+          translateType: straightTranslate
+          duration: '1.5'
+        finish:
+          easeStrength: 3
+          type: none
+          duration_type: seconds
+          easeType: none
+      font: LEMONMILK-Regular
+      subRegions:
+        - type: subbackground
+      load:
+        use_size: false
+        class_and_spec:
+          single: 258
+          multi:
+            '258': true
+        talent:
+          multi: []
+        use_vehicle: false
+        class:
+          single: PALADIN
+          multi: []
+        use_class: true
+        use_spellknown: true
+        ingroup:
+          single: group
+        use_ingroup: true
+        spec:
+          multi: []
+        use_alive: true
+        spellknown: 156910
+        size:
+          multi:
+            ten: true
+            twentyfive: true
+            fortyman: true
+            ratedpvp: true
+            party: true
+            ratedarena: true
+            arena: true
+            twenty: true
+            flexible: true
+      fontSize: 20
+      shadowXOffset: 1
+      regionType: text
+      shadowYOffset: -1
+      displayText_format_p_time_precision: 1
+      wordWrap: WordWrap
+      conditions: []
+      justify: LEFT
+      tocversion: 90207
+      id: Missing beacon 2
+      displayText: Beacon yourself, motherfucker
+      frameStrata: 1
+      anchorFrameType: SCREEN
+      color:
+        - 0.5529411764705883
+        - 0.3803921568627451
+        - 1
+        - 1
+      config: []
+      uid: 77XPKhTj2Jl
+      authorOptions: []
+      shadowColor:
+        - 0
+        - 0
+        - 0
+        - 1
+      fixedWidth: 200
+      information: []
+      selfPoint: BOTTOM
+    - outline: OUTLINE
+      xOffset: 0
+      displayText_format_p_time_dynamic_threshold: 60
+      shadowYOffset: -1
+      anchorPoint: CENTER
+      displayText_format_p_time_format: 0
+      customTextUpdate: event
+      automaticWidth: Auto
+      actions:
+        start:
+          sound: Interface\AddOns\WeakAuras\Media\Sounds\RobotBlip.ogg
+          do_sound: false
+        finish: []
+        init: []
+      triggers:
+        '1':
+          trigger:
+            type: unit
+            subeventSuffix: _CAST_START
+            debuffType: HELPFUL
+            duration: '1'
+            genericShowOn: showOnActive
+            subeventPrefix: SPELL
+            event: Conditions
+            use_unit: true
+            spellIds: []
+            names: []
+            unit: player
+            unevent: auto
+            use_HasPet: false
+            use_mounted: false
+          untrigger: []
+        '2':
+          trigger:
+            type: spell
+            debuffType: HELPFUL
+            subeventSuffix: _CAST_START
+            unit: player
+            use_absorbMode: true
+            event: Spell Known
+            subeventPrefix: SPELL
+            use_unit: true
+            use_spellName: true
+            spellIds: []
+            duration: '1'
+            use_exact_spellName: false
+            unevent: auto
+            names: []
+            spellName: 108503
+          untrigger: []
+        disjunctive: any
+        activeTriggerMode: 1
+      displayText_format_p_format: timed
+      internalVersion: 53
+      wordWrap: WordWrap
+      font: LEMONMILK-Regular
+      subRegions:
+        - type: subbackground
+      load:
+        use_class: true
+        use_alive: true
+        class_and_spec:
+          single: 258
+          multi:
+            '258': true
+        talent:
+          multi: []
+        use_vehicle: false
+        class:
+          single: WARLOCK
+          multi: []
+        spec:
+          multi: []
+        size:
+          multi: []
+      fontSize: 20
+      shadowXOffset: 1
+      regionType: text
+      displayText: Summon pet you dolt
+      displayText_format_p_time_precision: 1
+      selfPoint: BOTTOM
+      conditions: []
+      justify: LEFT
+      tocversion: 90207
+      id: Missing pet
+      yOffset: -10.00000095367432
+      frameStrata: 1
+      anchorFrameType: SCREEN
+      authorOptions: []
+      config: []
+      uid: 39iByo6mVlu
+      color:
+        - 0.5529411764705883
+        - 0.3803921568627451
+        - 1
+        - 1
+      shadowColor:
+        - 0
+        - 0
+        - 0
+        - 1
+      fixedWidth: 200
+      information: []
+      animation:
+        start:
+          easeStrength: 3
+          type: none
+          duration_type: seconds
+          easeType: none
+        main:
+          colorR: 1
+          scalex: 1
+          alphaType: alphaPulse
+          colorB: 1
+          colorG: 1
+          alphaFunc: |
+            function(progress, start, delta)
+                local angle = (progress * 2 * math.pi) - (math.pi / 2)
+                return start + (((math.sin(angle) + 1)/2) * delta)
+            end
+          use_translate: false
+          use_alpha: true
+          type: custom
+          easeType: none
+          translateFunc: >
+            function(progress, startX, startY, deltaX, deltaY)
+                return startX + (progress * deltaX), startY + (progress * deltaY)
+            end
+          scaley: 1
+          alpha: 0
+          y: 0
+          x: 0
+          duration_type: seconds
+          colorA: 1
+          rotate: 0
+          easeStrength: 3
+          translateType: straightTranslate
+          duration: '1.5'
+        finish:
+          easeStrength: 3
+          type: none
+          duration_type: seconds
+          easeType: none
+    - outline: OUTLINE
+      xOffset: 0
+      displayText_format_p_time_dynamic_threshold: 60
+      shadowYOffset: -1
+      anchorPoint: CENTER
+      displayText_format_p_time_format: 0
+      customTextUpdate: event
+      automaticWidth: Auto
+      actions:
+        start:
+          sound: Interface\AddOns\WeakAuras\Media\Sounds\RobotBlip.ogg
+          do_sound: false
+        init: []
+        finish: []
+      triggers:
+        '1':
+          trigger:
+            type: aura2
+            auraspellids:
+              - '232698'
+              - '194249'
+            matchesShowOn: showOnMissing
+            event: Health
+            subeventPrefix: SPELL
+            spellIds: []
+            subeventSuffix: _CAST_START
+            useExactSpellId: true
+            names: []
+            unit: player
+            debuffType: HELPFUL
+          untrigger: []
+        '2':
+          trigger:
+            type: unit
+            use_absorbHealMode: true
+            percenthealth: '0'
+            event: Health
+            unit: player
+            use_inCombat: true
+            use_absorbMode: true
+            use_unit: true
+            use_percenthealth: true
+            percenthealth_operator: '>'
+            debuffType: HELPFUL
+          untrigger: []
+        activeTriggerMode: -10
+      displayText_format_p_format: timed
+      internalVersion: 53
+      animation:
+        start:
+          type: none
+          easeStrength: 3
+          duration_type: seconds
+          easeType: none
+        main:
+          colorR: 1
+          scalex: 1
+          alphaType: alphaPulse
+          colorB: 1
+          colorG: 1
+          alphaFunc: |
+            function(progress, start, delta)
+                local angle = (progress * 2 * math.pi) - (math.pi / 2)
+                return start + (((math.sin(angle) + 1)/2) * delta)
+            end
+          use_translate: false
+          use_alpha: true
+          type: custom
+          easeType: none
+          translateFunc: >
+            function(progress, startX, startY, deltaX, deltaY)
+                return startX + (progress * deltaX), startY + (progress * deltaY)
+            end
+          scaley: 1
+          alpha: 0
+          y: 0
+          x: 0
+          duration: '1.5'
+          translateType: straightTranslate
+          easeStrength: 3
+          rotate: 0
+          colorA: 1
+          duration_type: seconds
+        finish:
+          type: none
+          easeStrength: 3
+          duration_type: seconds
+          easeType: none
+      font: LEMONMILK-Regular
+      subRegions:
+        - type: subbackground
+      load:
+        spec:
+          multi: []
+        class:
+          multi: []
+        class_and_spec:
+          single: 258
+        talent:
+          multi: []
+        use_vehicle: false
+        use_class_and_spec: true
+        use_alive: true
+        size:
+          multi: []
+      fontSize: 20
+      shadowXOffset: 1
+      regionType: text
+      displayText: Shadowform you dolt
+      displayText_format_p_time_precision: 1
+      color:
+        - 0.5529411764705883
+        - 0.3803921568627451
+        - 1
+        - 1
+      fixedWidth: 200
+      justify: LEFT
+      tocversion: 90207
+      id: Missing shadowform
+      wordWrap: WordWrap
+      frameStrata: 1
+      anchorFrameType: SCREEN
+      yOffset: -10.00000095367432
+      uid: jRYCKbBSntk
+      config: []
+      authorOptions: []
+      shadowColor:
+        - 0
+        - 0
+        - 0
+        - 1
+      conditions: []
+      information: []
+      selfPoint: BOTTOM
+    - outline: OUTLINE
+      xOffset: 0
+      displayText: So'leah's missing
+      shadowYOffset: -1
+      anchorPoint: CENTER
+      displayText_format_p_time_format: 0
+      customTextUpdate: event
+      automaticWidth: Auto
+      actions:
+        start:
+          sound: Interface\AddOns\WeakAuras\Media\Sounds\RobotBlip.ogg
+          do_sound: false
+        init: []
+        finish: []
+      triggers:
+        '1':
+          trigger:
+            useGroup_count: true
+            duration: '1'
+            genericShowOn: showOnActive
+            names: []
+            group_count: '0'
+            use_HasPet: false
+            group_countOperator: ==
+            useName: false
+            subeventSuffix: _CAST_START
+            unit: player
+            subeventPrefix: SPELL
+            event: Conditions
+            use_unit: true
+            debuffType: HELPFUL
+            unevent: auto
+            spellIds: []
+            matchesShowOn: showOnMissing
+            type: aura2
+            useExactSpellId: true
+            auraspellids:
+              - '368512'
+            use_mounted: false
+          untrigger: []
+        disjunctive: all
+        activeTriggerMode: 1
+      displayText_format_p_format: timed
+      internalVersion: 53
+      selfPoint: BOTTOM
+      font: LEMONMILK-Regular
+      subRegions:
+        - type: subbackground
+      load:
+        ingroup:
+          single: group
+          multi:
+            group: true
+            raid: true
+        class_and_spec:
+          single: 258
+          multi:
+            '258': true
+        talent:
+          multi: []
+        use_vehicle: false
+        class:
+          single: PALADIN
+          multi:
+            PALADIN: true
+        use_size: false
+        use_spellknown: false
+        use_ingroup: false
+        use_itemequiped: true
+        itemequiped: 190958
+        spec:
+          multi: []
+        use_alive: true
+        spellknown: 156910
+        size:
+          multi:
+            ten: true
+            twentyfive: true
+            fortyman: true
+            ratedpvp: true
+            party: true
+            ratedarena: true
+            arena: true
+            twenty: true
+            flexible: true
+      fontSize: 20
+      shadowXOffset: 1
+      regionType: text
+      yOffset: -10.00000095367432
+      displayText_format_p_time_precision: 1
+      animation:
+        start:
+          type: none
+          easeStrength: 3
+          duration_type: seconds
+          easeType: none
+        main:
+          colorR: 1
+          scalex: 1
+          alphaType: alphaPulse
+          colorB: 1
+          colorG: 1
+          alphaFunc: |
+            function(progress, start, delta)
+                local angle = (progress * 2 * math.pi) - (math.pi / 2)
+                return start + (((math.sin(angle) + 1)/2) * delta)
+            end
+          use_translate: false
+          use_alpha: true
+          type: custom
+          easeType: none
+          translateFunc: >
+            function(progress, startX, startY, deltaX, deltaY)
+                return startX + (progress * deltaX), startY + (progress * deltaY)
+            end
+          scaley: 1
+          alpha: 0
+          y: 0
+          x: 0
+          duration: '1.5'
+          translateType: straightTranslate
+          easeStrength: 3
+          rotate: 0
+          colorA: 1
+          duration_type: seconds
+        finish:
+          type: none
+          easeStrength: 3
+          duration_type: seconds
+          easeType: none
+      fixedWidth: 200
+      justify: LEFT
+      tocversion: 90207
+      id: Missing So'leah's Buff
+      color:
+        - 0.5529411764705883
+        - 0.3803921568627451
+        - 1
+        - 1
+      frameStrata: 1
+      anchorFrameType: SCREEN
+      displayText_format_p_time_dynamic_threshold: 60
+      uid: QixQXVXvrWz
+      config: []
+      authorOptions: []
+      shadowColor:
+        - 0
+        - 0
+        - 0
+        - 1
+      conditions: []
+      information: []
+      wordWrap: WordWrap
+  v: 1421
