@@ -1,0 +1,79 @@
+---
+wa:
+  s: 4.1.4
+  m: d
+  d:
+    backdropColor:
+      - 1
+      - 1
+      - 1
+      - 0.5
+    borderBackdrop: Blizzard Tooltip
+    tocversion: 90207
+    xOffset: 0
+    border: false
+    yOffset: 0
+    regionType: group
+    borderSize: 2
+    borderColor:
+      - 0
+      - 0
+      - 0
+      - 1
+    authorOptions: []
+    actions:
+      start: []
+      finish: []
+      init: []
+    triggers:
+      - trigger:
+          debuffType: HELPFUL
+          type: aura2
+          spellIds: []
+          subeventSuffix: _CAST_START
+          unit: player
+          names: []
+          event: Health
+          subeventPrefix: SPELL
+        untrigger: []
+    borderEdge: Square Full White
+    internalVersion: 53
+    anchorPoint: CENTER
+    animation:
+      start:
+        easeStrength: 3
+        type: none
+        duration_type: seconds
+        easeType: none
+      main:
+        easeStrength: 3
+        type: none
+        duration_type: seconds
+        easeType: none
+      finish:
+        easeStrength: 3
+        type: none
+        duration_type: seconds
+        easeType: none
+    id: TEMPLATE_NAME
+    information: []
+    frameStrata: 1
+    anchorFrameType: SCREEN
+    scale: 1
+    config: []
+    borderOffset: 4
+    subRegions: []
+    borderInset: 1
+    conditions: []
+    load:
+      talent:
+        multi: []
+      spec:
+        multi: []
+      class:
+        multi: []
+      size:
+        multi: []
+    selfPoint: CENTER
+  c: []
+  v: 1421

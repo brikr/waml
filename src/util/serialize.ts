@@ -1,6 +1,8 @@
+import {readFileSync} from 'fs';
 import {decodeSync, encodeSync} from 'node-weakauras-parser';
-import {WAML, WeakAura} from '../types';
+import {WeakAura} from '../types/weakauras';
 import {stringify as yamlStringify, parse as yamlParse} from 'yaml';
+import {WAML} from '../types/waml';
 
 export function decodeWeakAura(s: string): WeakAura {
   return decodeSync(s);
@@ -25,4 +27,9 @@ export function parse(s: string): WAML {
   const parsed = yamlParse(s);
   validate(parsed);
   return parsed;
+}
+
+export function parseFromFile(file: string): WAML {
+  const yaml = readFileSync(file, {encoding: 'utf8', flag: 'r'}).trim();
+  return parse(yaml);
 }

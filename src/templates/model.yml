@@ -1,0 +1,100 @@
+---
+wa:
+  m: d
+  d:
+    modelIsUnit: false
+    borderBackdrop: Blizzard Tooltip
+    api: false
+    xOffset: 0
+    yOffset: 0
+    anchorPoint: CENTER
+    model_x: 0
+    borderColor:
+      - 1
+      - 1
+      - 1
+      - 0.5
+    actions:
+      start: []
+      finish: []
+      init: []
+    triggers:
+      '1':
+        trigger:
+          debuffType: HELPFUL
+          type: aura2
+          spellIds: []
+          subeventSuffix: _CAST_START
+          unit: player
+          names: []
+          event: Health
+          subeventPrefix: SPELL
+        untrigger: []
+      activeTriggerMode: -10
+    internalVersion: 53
+    model_fileId: '122968'
+    model_path: spells/arcanepower_state_chest.m2
+    model_st_ty: 0
+    rotation: 0
+    model_st_tx: 0
+    subRegions:
+      - type: subbackground
+    height: 200
+    load:
+      talent:
+        multi: []
+      spec:
+        multi: []
+      class:
+        multi: []
+      size:
+        multi: []
+    backdropColor:
+      - 1
+      - 1
+      - 1
+      - 0.5
+    sequence: 1
+    scale: 1
+    border: false
+    borderEdge: None
+    regionType: model
+    borderSize: 16
+    model_st_us: 40
+    model_st_rz: 0
+    animation:
+      start:
+        easeStrength: 3
+        type: none
+        duration_type: seconds
+        easeType: none
+      main:
+        easeStrength: 3
+        type: none
+        duration_type: seconds
+        easeType: none
+      finish:
+        easeStrength: 3
+        type: none
+        duration_type: seconds
+        easeType: none
+    information: []
+    selfPoint: CENTER
+    authorOptions: []
+    model_st_ry: 0
+    borderOffset: 5
+    tocversion: 90207
+    id: TEMPLATE_NAME
+    model_y: 0
+    frameStrata: 1
+    anchorFrameType: SCREEN
+    borderInset: 11
+    config: []
+    width: 200
+    model_st_rx: 270
+    model_z: 0
+    conditions: []
+    model_st_tz: 0
+    advance: false
+  s: 4.1.4
+  v: 1421
