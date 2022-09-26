@@ -1,7 +1,7 @@
 import {logger} from './logger';
 import {WAML} from '../types/waml';
 import {WeakAura} from '../types/weakauras';
-import {merge} from 'lodash';
+import {merge, set} from 'lodash';
 import {parseFromFile} from './serialize';
 import {dirname, resolve} from 'path';
 
@@ -54,13 +54,14 @@ export function compile(waml: WAML, cwd: string): WeakAura {
 
   // apply name and uid overrides
   if (waml.name) {
-    waml.wa.d.id = waml.name;
+    set(waml, 'wa.d.id', waml.name);
   }
   if (waml.uid) {
-    waml.wa.d.uid = waml.uid;
+    set(waml, 'wa.d.uid', waml.uid);
   }
 
-  return waml.wa;
+  // making the (bold?) assumption that we have full WeakAura object after everything
+  return waml.wa as WeakAura;
 }
 
 export function decompile(wa: WeakAura): WAML {

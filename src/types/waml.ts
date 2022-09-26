@@ -28,11 +28,12 @@ export interface WAML {
   // unique identifier that WA uses to detect updates/duplicates
   uid?: string;
 
-  // the following types are mutually exclusive
+  // from and type are mutually exclusive
   // template file that we are importing from
   from?: string;
   // weakaura type. under the hood, it's importing from a built-in template
   type?: Type;
-  // raw weakaura data
-  wa?: WeakAura;
+
+  // raw weakaura data, or partial weakaura data
+  wa?: Partial<WeakAura>;
 }
