@@ -8,6 +8,7 @@ import {
 } from './util/serialize';
 import {compile, decompile} from './util/compile';
 import {logger} from './util/logger';
+import {dirname} from 'path';
 
 const program = new Command();
 
@@ -22,7 +23,7 @@ program
   )
   .action((inputFile, options) => {
     const parsed = parseFromFile(inputFile);
-    const compiled = compile(parsed);
+    const compiled = compile(parsed, dirname(inputFile));
 
     let output: string;
     if (options.yamlOnly) {

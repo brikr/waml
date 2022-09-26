@@ -3,6 +3,7 @@ import {decodeSync, encodeSync} from 'node-weakauras-parser';
 import {WeakAura} from '../types/weakauras';
 import {stringify as yamlStringify, parse as yamlParse} from 'yaml';
 import {WAML} from '../types/waml';
+import {logger} from './logger';
 
 export function decodeWeakAura(s: string): WeakAura {
   return decodeSync(s);
@@ -30,6 +31,7 @@ export function parse(s: string): WAML {
 }
 
 export function parseFromFile(file: string): WAML {
+  logger.debug('Parsing template from file', file);
   const yaml = readFileSync(file, {encoding: 'utf8', flag: 'r'}).trim();
   return parse(yaml);
 }
