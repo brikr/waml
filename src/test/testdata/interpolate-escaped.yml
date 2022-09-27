@@ -1,0 +1,9 @@
+---
+name: Interpolato
+type: text
+variables:
+  text: I am text
+
+wa:
+  d:
+    displayText: '!{${text}}'

@@ -1,8 +1,4 @@
-type Atom = string | number | boolean | undefined;
-
-interface Serializable {
-  [key: string]: Atom | Serializable | Array<Atom | Serializable>;
-}
+import {Serializable} from './serializable';
 
 // can extend Serializable later if there's specific fields we want to give known types to
 export interface WeakAura extends Serializable {

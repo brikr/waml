@@ -1,3 +1,4 @@
+import {Serializable} from './serializable';
 import {WeakAura, RegionType} from './weakauras';
 
 export type Type =
@@ -27,6 +28,9 @@ export interface WAML {
   name?: string;
   // unique identifier that WA uses to detect updates/duplicates
   uid?: string;
+
+  // variables
+  variables?: Serializable;
 
   // from and type are mutually exclusive
   // template file that we are importing from
