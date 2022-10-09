@@ -3,7 +3,7 @@
 # not used by any unit tests, just here so I can compile it and import in-game to make sure it works
 
 name: Dagwood
-type: dynamic-group
+type: group
 
 children:
   - name: dagwood-dynamic-group
