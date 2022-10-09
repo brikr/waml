@@ -1,15 +1,16 @@
 import {Serializable} from './serializable';
-import {WeakAura, RegionType} from './weakauras';
+import {WeakAura, RegionType, GroupWeakAura} from './weakauras';
 
 export type Type =
-  | 'dynamic-group'
-  | 'group'
+  | GroupType
   | 'model'
   | 'progress-bar'
   | 'progress-texture'
   | 'stop-motion'
   | 'text'
   | 'texture';
+
+export type GroupType = 'dynamic-group' | 'group';
 
 export const TYPE_TO_REGION_TYPE: {[key in Type]: RegionType} = {
   'dynamic-group': 'dynamicgroup',
@@ -40,4 +41,12 @@ export interface WAML {
 
   // raw weakaura data, or partial weakaura data
   wa?: Partial<WeakAura>;
+}
+
+export interface GroupWAML extends WAML {
+  children?: Array<WAML>;
+
+  type?: GroupType;
+
+  wa?: Partial<GroupWeakAura>;
 }

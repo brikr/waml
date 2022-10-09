@@ -1,12 +1,9 @@
-import {dirname} from 'path';
-import {compile} from '../util/compile';
-import {parseFromFile} from '../util/serialize';
-import {loadAndCompileFromFile} from './test-helpers';
+import {loadAndCompileFromTestFile} from './test-helpers';
 
 describe('templates', () => {
   test('built-in template', () => {
-    const {wa, waml} = loadAndCompileFromFile(
-      `${__dirname}/testdata/text-from-builtin-template.yml`
+    const {wa, waml} = loadAndCompileFromTestFile(
+      'text-from-builtin-template.yml'
     );
 
     // should have type from built-in template
@@ -17,8 +14,8 @@ describe('templates', () => {
   });
 
   test('custom template', () => {
-    const {wa, waml} = loadAndCompileFromFile(
-      `${__dirname}/testdata/text-from-custom-template.yml`
+    const {wa, waml} = loadAndCompileFromTestFile(
+      'text-from-custom-template.yml'
     );
 
     // should have type from built-in template

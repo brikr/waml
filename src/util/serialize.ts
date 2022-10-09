@@ -24,13 +24,13 @@ function validate(waml: WAML) {
   return;
 }
 
-export function parse(s: string): WAML {
+export function parse<T extends WAML>(s: string): T {
   const parsed = yamlParse(s);
   validate(parsed);
   return parsed;
 }
 
-export function parseFromFile(file: string): WAML {
+export function parseFromFile<T extends WAML>(file: string): T {
   logger.debug('Parsing template from file', file);
   const yaml = readFileSync(file, {encoding: 'utf8', flag: 'r'}).trim();
   return parse(yaml);

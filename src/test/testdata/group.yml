@@ -1,0 +1,15 @@
+---
+name: Groupo
+uid: groupo
+type: group
+
+children:
+  - name: Texto
+    uid: texto
+    type: text
+    wa:
+      d:
+        displayText: I am text
+  - name: Icono
+    uid: icono
+    type: texture
