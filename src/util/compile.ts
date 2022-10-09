@@ -1,9 +1,10 @@
 import {logger} from './logger';
-import {WAML} from '../types/waml';
+import {GroupWAML, WAML} from '../types/waml';
 import {WeakAura} from '../types/weakauras';
 import {get, merge, set} from 'lodash';
 import {parse, parseFromFile, stringify} from './serialize';
 import {dirname, resolve} from 'path';
+import {isGroupWAML} from './is-group';
 
 function validate(waml: WAML) {
   // TODO :)
@@ -26,11 +27,12 @@ function applyTemplate(waml: WAML, cwd?: string): WAML {
     return waml;
   }
 
+  // NOTE: idk why i had this before, but keeping it here and commented in case an infinite loops pops up or something
   // remove importing fields
-  delete template.from;
-  delete template.type;
-  delete waml.from;
-  delete waml.type;
+  // delete template.from;
+  // delete template.type;
+  // delete waml.from;
+  // delete waml.type;
 
   const applied = merge(template, waml);
   logger.debug('WAML after applying template layer', applied);
@@ -77,7 +79,7 @@ function interpolateVariables(waml: WAML): WAML {
   return parse(applied);
 }
 
-export function compile(waml: WAML, cwd: string): WeakAura {
+export function compile<T extends WeakAura>(waml: WAML, cwd: string): T {
   validate(waml);
 
   logger.debug('WAML before applying templates', waml);
@@ -100,11 +102,18 @@ export function compile(waml: WAML, cwd: string): WeakAura {
     set(waml, 'wa.d.uid', waml.uid);
   }
 
+  // compile and insert children
+  if (isGroupWAML(waml) && waml.children) {
+    logger.debug('This WAML is a group', waml.children);
+    const waChildren = waml.children.map(child => compile(child, cwd).d);
+    waml.wa.c = waChildren;
+  }
+
   // apply variable interpolation
   waml = interpolateVariables(waml);
 
   // making the (bold?) assumption that we have full WeakAura object after everything
-  return waml.wa as WeakAura;
+  return waml.wa as T;
 }
 
 export function decompile(wa: WeakAura): WAML {
