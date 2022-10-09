@@ -1,5 +1,5 @@
 import {logger} from './logger';
-import {GroupWAML, WAML} from '../types/waml';
+import {WAML} from '../types/waml';
 import {WeakAura} from '../types/weakauras';
 import {get, merge, set} from 'lodash';
 import {parse, parseFromFile, stringify} from './serialize';

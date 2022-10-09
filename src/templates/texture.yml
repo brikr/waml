@@ -1,80 +1,84 @@
 ---
 wa:
   m: d
-  d:
-    tocversion: 90207
-    textureWrapMode: CLAMPTOBLACKADDITIVE
-    color:
-      - 1
-      - 1
-      - 1
-      - 1
-    desaturate: false
-    xOffset: 0
-    authorOptions: []
-    mirror: false
-    yOffset: 0
-    regionType: texture
-    information: []
-    blendMode: BLEND
-    anchorPoint: CENTER
-    conditions: []
-    triggers:
-      '1':
-        trigger:
-          debuffType: HELPFUL
-          type: aura2
-          spellIds: []
-          subeventSuffix: _CAST_START
-          unit: player
-          names: []
-          event: Health
-          subeventPrefix: SPELL
-        untrigger: []
-      activeTriggerMode: -10
-    actions:
-      start: []
-      finish: []
-      init: []
-    texture: Interface\Addons\WeakAuras\PowerAurasMedia\Auras\Aura3
-    frameStrata: 1
-    internalVersion: 53
-    selfPoint: CENTER
-    id: TEMPLATE_NAME
-    animation:
-      start:
-        easeStrength: 3
-        type: none
-        duration_type: seconds
-        easeType: none
-      main:
-        easeStrength: 3
-        type: none
-        duration_type: seconds
-        easeType: none
-      finish:
-        easeStrength: 3
-        type: none
-        duration_type: seconds
-        easeType: none
-    alpha: 1
-    width: 200
-    discrete_rotation: 0
-    config: []
-    anchorFrameType: SCREEN
-    subRegions:
-      - type: subbackground
-    height: 200
-    rotate: true
-    load:
-      talent:
-        multi: []
-      spec:
-        multi: []
-      class:
-        multi: []
-      size:
-        multi: []
-    rotation: 0
   s: 4.1.4
   v: 1421
+  d:
+    id: TEMPLATE_NAME
+    regionType: texture
+
+    # The fields below are what WeakAuras will generate when this aura is imported. They might serve as a useful
+    # reference when making auras
+
+    # tocversion: 90207
+    # textureWrapMode: CLAMPTOBLACKADDITIVE
+    # color:
+    #   - 1
+    #   - 1
+    #   - 1
+    #   - 1
+    # desaturate: false
+    # xOffset: 0
+    # authorOptions: []
+    # mirror: false
+    # yOffset: 0
+    # information: []
+    # blendMode: BLEND
+    # anchorPoint: CENTER
+    # conditions: []
+    # triggers:
+    #   '1':
+    #     trigger:
+    #       debuffType: HELPFUL
+    #       type: aura2
+    #       spellIds: []
+    #       subeventSuffix: _CAST_START
+    #       unit: player
+    #       names: []
+    #       event: Health
+    #       subeventPrefix: SPELL
+    #     untrigger: []
+    #   activeTriggerMode: -10
+    # actions:
+    #   start: []
+    #   finish: []
+    #   init: []
+    # texture: Interface\Addons\WeakAuras\PowerAurasMedia\Auras\Aura3
+    # frameStrata: 1
+    # internalVersion: 53
+    # selfPoint: CENTER
+    # animation:
+    #   start:
+    #     easeStrength: 3
+    #     type: none
+    #     duration_type: seconds
+    #     easeType: none
+    #   main:
+    #     easeStrength: 3
+    #     type: none
+    #     duration_type: seconds
+    #     easeType: none
+    #   finish:
+    #     easeStrength: 3
+    #     type: none
+    #     duration_type: seconds
+    #     easeType: none
+    # alpha: 1
+    # width: 200
+    # discrete_rotation: 0
+    # config: []
+    # anchorFrameType: SCREEN
+    # subRegions:
+    #   - type: subbackground
+    # height: 200
+    # rotate: true
+    # load:
+    #   talent:
+    #     multi: []
+    #   spec:
+    #     multi: []
+    #   class:
+    #     multi: []
+    #   size:
+    #     multi: []
+    # rotation: 0

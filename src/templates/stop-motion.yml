@@ -1,103 +1,107 @@
 ---
 wa:
   m: d
-  d:
-    xOffset: 0
-    yOffset: 0
-    foregroundColor:
-      - 1
-      - 1
-      - 1
-      - 1
-    desaturateBackground: false
-    animationType: loop
-    sameTexture: true
-    startPercent: 0
-    backgroundColor:
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-    customForegroundRows: 16
-    frameRate: 15
-    internalVersion: 53
-    selfPoint: CENTER
-    customForegroundFileHeight: 0
-    customBackgroundRows: 16
-    customForegroundFileWidth: 0
-    rotation: 0
-    subRegions:
-      - type: subbackground
-    height: 128
-    rotate: true
-    load:
-      talent:
-        multi: []
-      spec:
-        multi: []
-      class:
-        multi: []
-      size:
-        multi: []
-    tocversion: 90207
-    backgroundTexture: Interface\AddOns\WeakAuras\Media\Textures\stopmotion
-    customBackgroundColumns: 16
-    foregroundTexture: Interface\AddOns\WeakAuras\Media\Textures\stopmotion
-    backgroundPercent: 1
-    mirror: false
-    triggers:
-      '1':
-        trigger:
-          debuffType: HELPFUL
-          type: aura2
-          spellIds: []
-          subeventSuffix: _CAST_START
-          unit: player
-          names: []
-          event: Health
-          subeventPrefix: SPELL
-        untrigger: []
-      activeTriggerMode: -10
-    regionType: stopmotion
-    actions:
-      start: []
-      finish: []
-      init: []
-    endPercent: 1
-    discrete_rotation: 0
-    desaturateForeground: false
-    customForegroundColumns: 16
-    customForegroundFrames: 0
-    authorOptions: []
-    width: 128
-    hideBackground: true
-    customBackgroundFrames: 0
-    id: TEMPLATE_NAME
-    customForegroundFrameHeight: 0
-    frameStrata: 1
-    anchorFrameType: SCREEN
-    customForegroundFrameWidth: 0
-    config: []
-    inverse: false
-    anchorPoint: CENTER
-    blendMode: BLEND
-    conditions: []
-    information: []
-    animation:
-      start:
-        easeStrength: 3
-        type: none
-        duration_type: seconds
-        easeType: none
-      main:
-        easeStrength: 3
-        type: none
-        duration_type: seconds
-        easeType: none
-      finish:
-        easeStrength: 3
-        type: none
-        duration_type: seconds
-        easeType: none
   s: 4.1.4
   v: 1421
+  d:
+    id: TEMPLATE_NAME
+    regionType: stopmotion
+
+    # The fields below are what WeakAuras will generate when this aura is imported. They might serve as a useful
+    # reference when making auras
+
+    # xOffset: 0
+    # yOffset: 0
+    # foregroundColor:
+    #   - 1
+    #   - 1
+    #   - 1
+    #   - 1
+    # desaturateBackground: false
+    # animationType: loop
+    # sameTexture: true
+    # startPercent: 0
+    # backgroundColor:
+    #   - 0.5
+    #   - 0.5
+    #   - 0.5
+    #   - 0.5
+    # customForegroundRows: 16
+    # frameRate: 15
+    # internalVersion: 53
+    # selfPoint: CENTER
+    # customForegroundFileHeight: 0
+    # customBackgroundRows: 16
+    # customForegroundFileWidth: 0
+    # rotation: 0
+    # subRegions:
+    #   - type: subbackground
+    # height: 128
+    # rotate: true
+    # load:
+    #   talent:
+    #     multi: []
+    #   spec:
+    #     multi: []
+    #   class:
+    #     multi: []
+    #   size:
+    #     multi: []
+    # tocversion: 90207
+    # backgroundTexture: Interface\AddOns\WeakAuras\Media\Textures\stopmotion
+    # customBackgroundColumns: 16
+    # foregroundTexture: Interface\AddOns\WeakAuras\Media\Textures\stopmotion
+    # backgroundPercent: 1
+    # mirror: false
+    # triggers:
+    #   '1':
+    #     trigger:
+    #       debuffType: HELPFUL
+    #       type: aura2
+    #       spellIds: []
+    #       subeventSuffix: _CAST_START
+    #       unit: player
+    #       names: []
+    #       event: Health
+    #       subeventPrefix: SPELL
+    #     untrigger: []
+    #   activeTriggerMode: -10
+    # actions:
+    #   start: []
+    #   finish: []
+    #   init: []
+    # endPercent: 1
+    # discrete_rotation: 0
+    # desaturateForeground: false
+    # customForegroundColumns: 16
+    # customForegroundFrames: 0
+    # authorOptions: []
+    # width: 128
+    # hideBackground: true
+    # customBackgroundFrames: 0
+    # customForegroundFrameHeight: 0
+    # frameStrata: 1
+    # anchorFrameType: SCREEN
+    # customForegroundFrameWidth: 0
+    # config: []
+    # inverse: false
+    # anchorPoint: CENTER
+    # blendMode: BLEND
+    # conditions: []
+    # information: []
+    # animation:
+    #   start:
+    #     easeStrength: 3
+    #     type: none
+    #     duration_type: seconds
+    #     easeType: none
+    #   main:
+    #     easeStrength: 3
+    #     type: none
+    #     duration_type: seconds
+    #     easeType: none
+    #   finish:
+    #     easeStrength: 3
+    #     type: none
+    #     duration_type: seconds
+    #     easeType: none

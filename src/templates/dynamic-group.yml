@@ -2,95 +2,99 @@
 wa:
   s: 4.1.4
   m: d
-  d:
-    arcLength: 360
-    borderBackdrop: Blizzard Tooltip
-    xOffset: 0
-    yOffset: 0
-    anchorPoint: CENTER
-    fullCircle: true
-    space: 2
-    actions:
-      start: []
-      finish: []
-      init: []
-    triggers:
-      - trigger:
-          debuffType: HELPFUL
-          type: aura2
-          spellIds: []
-          subeventSuffix: _CAST_START
-          unit: player
-          names: []
-          event: Health
-          subeventPrefix: SPELL
-        untrigger: []
-    columnSpace: 1
-    radius: 200
-    useLimit: false
-    align: CENTER
-    stagger: 0
-    subRegions: []
-    load:
-      talent:
-        multi: []
-      spec:
-        multi: []
-      class:
-        multi: []
-      size:
-        multi: []
-    backdropColor:
-      - 1
-      - 1
-      - 1
-      - 0.5
-    rowSpace: 1
-    animate: false
-    scale: 1
-    border: false
-    borderEdge: Square Full White
-    regionType: dynamicgroup
-    borderSize: 2
-    sort: none
-    selfPoint: TOP
-    rotation: 0
-    internalVersion: 53
-    constantFactor: RADIUS
-    authorOptions: []
-    borderOffset: 4
-    config: []
-    tocversion: 90207
-    id: TEMPLATE_NAME
-    frameStrata: 1
-    gridWidth: 5
-    anchorFrameType: SCREEN
-    gridType: RD
-    borderInset: 1
-    grow: DOWN
-    limit: 5
-    borderColor:
-      - 0
-      - 0
-      - 0
-      - 1
-    conditions: []
-    information: []
-    animation:
-      start:
-        easeStrength: 3
-        type: none
-        duration_type: seconds
-        easeType: none
-      main:
-        easeStrength: 3
-        type: none
-        duration_type: seconds
-        easeType: none
-      finish:
-        easeStrength: 3
-        type: none
-        duration_type: seconds
-        easeType: none
   c: []
   v: 1421
+  d:
+    id: TEMPLATE_NAME
+    regionType: dynamicgroup
+
+    # The fields below are what WeakAuras will generate when this aura is imported. They might serve as a useful
+    # reference when making auras
+
+    # arcLength: 360
+    # borderBackdrop: Blizzard Tooltip
+    # xOffset: 0
+    # yOffset: 0
+    # anchorPoint: CENTER
+    # fullCircle: true
+    # space: 2
+    # actions:
+    #   start: []
+    #   finish: []
+    #   init: []
+    # triggers:
+    #   - trigger:
+    #       debuffType: HELPFUL
+    #       type: aura2
+    #       spellIds: []
+    #       subeventSuffix: _CAST_START
+    #       unit: player
+    #       names: []
+    #       event: Health
+    #       subeventPrefix: SPELL
+    #     untrigger: []
+    # columnSpace: 1
+    # radius: 200
+    # useLimit: false
+    # align: CENTER
+    # stagger: 0
+    # subRegions: []
+    # load:
+    #   talent:
+    #     multi: []
+    #   spec:
+    #     multi: []
+    #   class:
+    #     multi: []
+    #   size:
+    #     multi: []
+    # backdropColor:
+    #   - 1
+    #   - 1
+    #   - 1
+    #   - 0.5
+    # rowSpace: 1
+    # animate: false
+    # scale: 1
+    # border: false
+    # borderEdge: Square Full White
+    # borderSize: 2
+    # sort: none
+    # selfPoint: TOP
+    # rotation: 0
+    # internalVersion: 53
+    # constantFactor: RADIUS
+    # authorOptions: []
+    # borderOffset: 4
+    # config: []
+    # tocversion: 90207
+    # frameStrata: 1
+    # gridWidth: 5
+    # anchorFrameType: SCREEN
+    # gridType: RD
+    # borderInset: 1
+    # grow: DOWN
+    # limit: 5
+    # borderColor:
+    #   - 0
+    #   - 0
+    #   - 0
+    #   - 1
+    # conditions: []
+    # information: []
+    # animation:
+    #   start:
+    #     easeStrength: 3
+    #     type: none
+    #     duration_type: seconds
+    #     easeType: none
+    #   main:
+    #     easeStrength: 3
+    #     type: none
+    #     duration_type: seconds
+    #     easeType: none
+    #   finish:
+    #     easeStrength: 3
+    #     type: none
+    #     duration_type: seconds
+    #     easeType: none

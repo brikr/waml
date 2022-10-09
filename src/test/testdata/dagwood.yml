@@ -1,0 +1,27 @@
+---
+# makes use of all built-in templates to ensure they are working
+# not used by any unit tests, just here so I can compile it and import in-game to make sure it works
+
+name: Dagwood
+type: dynamic-group
+
+children:
+  - name: dagwood-dynamic-group
+    type: dynamic-group
+    children:
+      - name: dagwood-dynamic-group-text1
+        type: text
+      - name: dagwood-dynamic-group-text2
+        type: text
+  - name: dagwood-model
+    type: model
+  - name: dagwood-progress-bar
+    type: progress-bar
+  - name: dagwood-progress-texture
+    type: progress-texture
+  - name: dagwood-stop-motion
+    type: stop-motion
+  - name: dagwood-text
+    type: text
+  - name: dagwood-texture
+    type: texture

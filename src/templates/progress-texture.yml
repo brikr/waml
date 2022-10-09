@@ -1,101 +1,105 @@
 ---
 wa:
   m: d
-  d:
-    user_y: 0
-    user_x: 0
-    xOffset: 0
-    yOffset: 0
-    anchorPoint: CENTER
-    desaturateBackground: false
-    sameTexture: true
-    backgroundColor:
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-    triggers:
-      '1':
-        trigger:
-          debuffType: HELPFUL
-          type: aura2
-          spellIds: []
-          subeventSuffix: _CAST_START
-          unit: player
-          names: []
-          event: Health
-          subeventPrefix: SPELL
-        untrigger: []
-      activeTriggerMode: -10
-    endAngle: 360
-    internalVersion: 53
-    animation:
-      start:
-        easeStrength: 3
-        type: none
-        duration_type: seconds
-        easeType: none
-      main:
-        easeStrength: 3
-        type: none
-        duration_type: seconds
-        easeType: none
-      finish:
-        easeStrength: 3
-        type: none
-        duration_type: seconds
-        easeType: none
-    tocversion: 90207
-    rotation: 0
-    font: Friz Quadrata TT
-    subRegions:
-      - type: subbackground
-    height: 200
-    load:
-      talent:
-        multi: []
-      spec:
-        multi: []
-      class:
-        multi: []
-      size:
-        multi: []
-    useAdjustededMax: false
-    fontSize: 12
-    foregroundTexture: Interface\Addons\WeakAuras\PowerAurasMedia\Auras\Aura3
-    crop_y: 0.41
-    selfPoint: CENTER
-    mirror: false
-    useAdjustededMin: false
-    regionType: progresstexture
-    conditions: []
-    blendMode: BLEND
-    foregroundColor:
-      - 1
-      - 1
-      - 1
-      - 1
-    actions:
-      start: []
-      finish: []
-      init: []
-    slantMode: INSIDE
-    desaturateForeground: false
-    authorOptions: []
-    width: 200
-    alpha: 1
-    compress: false
-    id: TEMPLATE_NAME
-    startAngle: 0
-    frameStrata: 1
-    anchorFrameType: SCREEN
-    backgroundTexture: Interface\Addons\WeakAuras\PowerAurasMedia\Auras\Aura3
-    config: []
-    inverse: false
-    textureWrapMode: CLAMPTOBLACKADDITIVE
-    orientation: VERTICAL
-    crop_x: 0.41
-    information: []
-    backgroundOffset: 2
   s: 4.1.4
   v: 1421
+  d:
+    id: TEMPLATE_NAME
+    regionType: progresstexture
+
+    # The fields below are what WeakAuras will generate when this aura is imported. They might serve as a useful
+    # reference when making auras
+
+    # user_y: 0
+    # user_x: 0
+    # xOffset: 0
+    # yOffset: 0
+    # anchorPoint: CENTER
+    # desaturateBackground: false
+    # sameTexture: true
+    # backgroundColor:
+    #   - 0.5
+    #   - 0.5
+    #   - 0.5
+    #   - 0.5
+    # triggers:
+    #   '1':
+    #     trigger:
+    #       debuffType: HELPFUL
+    #       type: aura2
+    #       spellIds: []
+    #       subeventSuffix: _CAST_START
+    #       unit: player
+    #       names: []
+    #       event: Health
+    #       subeventPrefix: SPELL
+    #     untrigger: []
+    #   activeTriggerMode: -10
+    # endAngle: 360
+    # internalVersion: 53
+    # animation:
+    #   start:
+    #     easeStrength: 3
+    #     type: none
+    #     duration_type: seconds
+    #     easeType: none
+    #   main:
+    #     easeStrength: 3
+    #     type: none
+    #     duration_type: seconds
+    #     easeType: none
+    #   finish:
+    #     easeStrength: 3
+    #     type: none
+    #     duration_type: seconds
+    #     easeType: none
+    # tocversion: 90207
+    # rotation: 0
+    # font: Friz Quadrata TT
+    # subRegions:
+    #   - type: subbackground
+    # height: 200
+    # load:
+    #   talent:
+    #     multi: []
+    #   spec:
+    #     multi: []
+    #   class:
+    #     multi: []
+    #   size:
+    #     multi: []
+    # useAdjustededMax: false
+    # fontSize: 12
+    # foregroundTexture: Interface\Addons\WeakAuras\PowerAurasMedia\Auras\Aura3
+    # crop_y: 0.41
+    # selfPoint: CENTER
+    # mirror: false
+    # useAdjustededMin: false
+    # conditions: []
+    # blendMode: BLEND
+    # foregroundColor:
+    #   - 1
+    #   - 1
+    #   - 1
+    #   - 1
+    # actions:
+    #   start: []
+    #   finish: []
+    #   init: []
+    # slantMode: INSIDE
+    # desaturateForeground: false
+    # authorOptions: []
+    # width: 200
+    # alpha: 1
+    # compress: false
+    # startAngle: 0
+    # frameStrata: 1
+    # anchorFrameType: SCREEN
+    # backgroundTexture: Interface\Addons\WeakAuras\PowerAurasMedia\Auras\Aura3
+    # config: []
+    # inverse: false
+    # textureWrapMode: CLAMPTOBLACKADDITIVE
+    # orientation: VERTICAL
+    # crop_x: 0.41
+    # information: []
+    # backgroundOffset: 2

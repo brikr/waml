@@ -1,91 +1,95 @@
 ---
 wa:
   m: d
-  d:
-    outline: OUTLINE
-    xOffset: 0
-    displayText_format_p_time_dynamic_threshold: 60
-    shadowYOffset: -1
-    anchorPoint: CENTER
-    displayText_format_p_time_format: 0
-    customTextUpdate: event
-    automaticWidth: Auto
-    actions:
-      start: []
-      finish: []
-      init: []
-    triggers:
-      '1':
-        trigger:
-          debuffType: HELPFUL
-          type: aura2
-          spellIds: []
-          subeventSuffix: _CAST_START
-          unit: player
-          names: []
-          event: Health
-          subeventPrefix: SPELL
-        untrigger: []
-      activeTriggerMode: -10
-    displayText_format_p_time_mod_rate: true
-    displayText_format_p_time_legacy_floor: false
-    selfPoint: BOTTOM
-    font: Friz Quadrata TT
-    subRegions:
-      - type: subbackground
-    load:
-      talent:
-        multi: []
-      spec:
-        multi: []
-      class:
-        multi: []
-      size:
-        multi: []
-    fontSize: 12
-    shadowXOffset: 1
-    regionType: text
-    config: []
-    animation:
-      start:
-        easeStrength: 3
-        type: none
-        duration_type: seconds
-        easeType: none
-      main:
-        easeStrength: 3
-        type: none
-        duration_type: seconds
-        easeType: none
-      finish:
-        easeStrength: 3
-        type: none
-        duration_type: seconds
-        easeType: none
-    displayText_format_p_time_precision: 1
-    displayText_format_p_format: timed
-    conditions: []
-    color:
-      - 1
-      - 1
-      - 1
-      - 1
-    justify: LEFT
-    tocversion: 90207
-    id: TEMPLATE_NAME
-    wordWrap: WordWrap
-    frameStrata: 1
-    anchorFrameType: SCREEN
-    yOffset: 0
-    authorOptions: []
-    displayText: '%p'
-    shadowColor:
-      - 0
-      - 0
-      - 0
-      - 1
-    fixedWidth: 200
-    information: []
-    internalVersion: 53
   s: 4.1.4
   v: 1421
+  d:
+    id: TEMPLATE_NAME
+    regionType: text
+
+    # The fields below are what WeakAuras will generate when this aura is imported. They might serve as a useful
+    # reference when making auras
+
+    # outline: OUTLINE
+    # xOffset: 0
+    # displayText_format_p_time_dynamic_threshold: 60
+    # shadowYOffset: -1
+    # anchorPoint: CENTER
+    # displayText_format_p_time_format: 0
+    # customTextUpdate: event
+    # automaticWidth: Auto
+    # actions:
+    #   start: []
+    #   finish: []
+    #   init: []
+    # triggers:
+    #   '1':
+    #     trigger:
+    #       debuffType: HELPFUL
+    #       type: aura2
+    #       spellIds: []
+    #       subeventSuffix: _CAST_START
+    #       unit: player
+    #       names: []
+    #       event: Health
+    #       subeventPrefix: SPELL
+    #     untrigger: []
+    #   activeTriggerMode: -10
+    # displayText_format_p_time_mod_rate: true
+    # displayText_format_p_time_legacy_floor: false
+    # selfPoint: BOTTOM
+    # font: Friz Quadrata TT
+    # subRegions:
+    #   - type: subbackground
+    # load:
+    #   talent:
+    #     multi: []
+    #   spec:
+    #     multi: []
+    #   class:
+    #     multi: []
+    #   size:
+    #     multi: []
+    # fontSize: 12
+    # shadowXOffset: 1
+    # config: []
+    # animation:
+    #   start:
+    #     easeStrength: 3
+    #     type: none
+    #     duration_type: seconds
+    #     easeType: none
+    #   main:
+    #     easeStrength: 3
+    #     type: none
+    #     duration_type: seconds
+    #     easeType: none
+    #   finish:
+    #     easeStrength: 3
+    #     type: none
+    #     duration_type: seconds
+    #     easeType: none
+    # displayText_format_p_time_precision: 1
+    # displayText_format_p_format: timed
+    # conditions: []
+    # color:
+    #   - 1
+    #   - 1
+    #   - 1
+    #   - 1
+    # justify: LEFT
+    # tocversion: 90207
+    # wordWrap: WordWrap
+    # frameStrata: 1
+    # anchorFrameType: SCREEN
+    # yOffset: 0
+    # authorOptions: []
+    # displayText: '%p'
+    # shadowColor:
+    #   - 0
+    #   - 0
+    #   - 0
+    #   - 1
+    # fixedWidth: 200
+    # information: []
+    # internalVersion: 53
