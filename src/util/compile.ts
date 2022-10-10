@@ -4,7 +4,7 @@ import {WeakAura} from '../types/weakauras';
 import {get, merge, set} from 'lodash';
 import {parse, parseFromFile, stringify} from './serialize';
 import {dirname, resolve} from 'path';
-import {isGroupWAML} from './is-group';
+import {isGroupWAML, isGroupWeakAura} from './is-group';
 
 function validate(waml: WAML) {
   // TODO :)
@@ -87,10 +87,10 @@ export function compile<T extends WeakAura>(waml: WAML, cwd: string): T {
   // apply templates all the way down
   waml = applyTemplate(waml, cwd);
 
-  if (!waml.wa) {
+  if (!waml.wa?.d) {
     // we should have weakauras data by now if everything is valid
     throw new Error(
-      "compile: didn't have wa field after applying templates. Broken WAML?"
+      "compile: didn't have wa.d field after applying templates. Broken WAML?"
     );
   }
 
@@ -104,9 +104,23 @@ export function compile<T extends WeakAura>(waml: WAML, cwd: string): T {
 
   // compile and insert children
   if (isGroupWAML(waml) && waml.children) {
-    logger.debug('This WAML is a group', waml.children);
-    const waChildren = waml.children.map(child => compile(child, cwd).d);
-    waml.wa.c = waChildren;
+    logger.debug('This WAML is a group', waml.name, waml.children.length);
+    waml.wa.c ??= [];
+
+    for (const childWaml of waml.children) {
+      const childWa = compile(childWaml, cwd);
+      childWa.d.parent = waml.wa.d.id;
+
+      waml.wa.d.controlledChildren ??= [];
+      waml.wa.d.controlledChildren.push(childWa.d.id);
+
+      waml.wa.c.push(childWa.d);
+
+      if (isGroupWeakAura(childWa) && childWa.c) {
+        // nested group; claim its children
+        waml.wa.c.push(...childWa.c);
+      }
+    }
   }
 
   // apply variable interpolation

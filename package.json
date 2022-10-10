@@ -10,7 +10,7 @@
     "build": "npm run compile && npm run copy-assets",
     "clean": "gts clean",
     "compile": "tsc",
-    "copy-assets": "cp -r src/templates build/templates",
+    "copy-assets": "cp -r src/templates build/",
     "fix": "gts fix",
     "lint": "gts lint",
     "test": "jest",

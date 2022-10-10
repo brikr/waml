@@ -1,0 +1,19 @@
+---
+name: outer-group
+type: group
+
+children:
+  - name: outer-group/text
+    type: text
+  - name: inner-group
+    type: group
+    children:
+      - name: inner-group/text
+        type: text
+      - name: inner-group/text2
+        type: text
+      - name: very-inner-group
+        type: group
+        children:
+          - name: very-inner-group/text
+            type: text

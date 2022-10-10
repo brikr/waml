@@ -6,13 +6,18 @@ name: Dagwood
 type: group
 
 children:
-  - name: dagwood-dynamic-group
-    type: dynamic-group
+  - name: dagwood-group
+    type: group
     children:
-      - name: dagwood-dynamic-group-text1
+      - name: dagwood-group-text1
         type: text
-      - name: dagwood-dynamic-group-text2
+      - name: dagwood-group-text2
         type: text
+      - name: dagwood-group-dynamic-group
+        type: dynamic-group
+        children:
+          - name: dagwood-group-dynamic-group-text
+            type: text
   - name: dagwood-model
     type: model
   - name: dagwood-progress-bar
