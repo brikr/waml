@@ -23,3 +23,6 @@ wa:
       - ${number}
       - the text says ${text}
       - ${object}
+    internalObject:
+      hello: dude
+    self: _{wa.d.internalObject}

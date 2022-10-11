@@ -48,5 +48,9 @@ describe('interpolation', () => {
         {key: 'value'},
       ]);
     });
+
+    test('whole-field self object', () => {
+      expect(wa.d.self).toEqual({hello: 'dude'});
+    });
   });
 });

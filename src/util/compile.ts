@@ -52,10 +52,16 @@ function interpolateVariables(waml: WAML): WAML {
     if (wholeStringMatch) {
       // the entire field is the variable, replace the whole value and maintain types
       logger.debug(
-        `interpolateVariables: Found whole-field interpolation ${value}, replacing with exact variable`,
-        wholeStringMatch
+        `interpolateVariables: Found whole-field interpolation ${value}, replacing with exact variable`
       );
-      (obj as Serializable)[key] = get(waml.variables, wholeStringMatch[2]);
+      const [original, type, content] = wholeStringMatch;
+      if (type === '$') {
+        // variable insertion
+        (obj as Serializable)[key] = get(waml.variables, content);
+      } else if (type === '_') {
+        // self insertion
+        (obj as Serializable)[key] = get(waml, content);
+      }
       return;
     }
 
