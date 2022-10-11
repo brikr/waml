@@ -24,7 +24,7 @@ export const TYPE_TO_REGION_TYPE: {[key in Type]: RegionType} = {
 };
 
 // the contents of a .yml file
-export interface WAML {
+export interface WAML extends Serializable {
   // weakaura name
   name?: string;
   // unique identifier that WA uses to detect updates/duplicates

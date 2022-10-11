@@ -5,6 +5,8 @@ import {get, merge, set} from 'lodash';
 import {parse, parseFromFile, stringify} from './serialize';
 import {dirname, resolve} from 'path';
 import {isGroupWAML, isGroupWeakAura} from './is-group';
+import {deepForEach} from './deep-for-each';
+import {Serializable} from '../types/serializable';
 
 function validate(waml: WAML) {
   // TODO :)
@@ -40,43 +42,57 @@ function applyTemplate(waml: WAML, cwd?: string): WAML {
 }
 
 function interpolateVariables(waml: WAML): WAML {
-  // this might haunt me later, but it seems cozy to just stringify the whole thing, run interpolation, and then parse
-  // the whole thing again.
-  // this does mean you could inject/break the yaml via variables, but surely nobody will do that by mistake
-  // also, with this there isn't a way to use an entire object as a variable, although that might be handy to have in
-  // the future
-  const stringified = stringify(waml);
-
-  const applied = stringified.replace(
-    /([$_!]){(.+?)}/g,
-    (original, type, content) => {
-      let value = original;
-      if (type === '$') {
-        // variable interpolation
-        value = String(get(waml.variables, content));
-      } else if (type === '_') {
-        // self interpolation
-        value = String(get(waml, content));
-      } else {
-        // escaping
-        value = content;
-      }
-
-      if (value !== original) {
-        logger.debug(
-          `interpolateVariables: Found interpolation ${original}, replaced with ${value}`
-        );
-      } else {
-        logger.debug(
-          `interpolateVariables: Found interpolation ${original}, but couldn't replace`
-        );
-      }
-
-      return value;
+  deepForEach(waml, (obj, key, value) => {
+    if (typeof value !== 'string') {
+      // only interpolate strings
+      return;
     }
-  );
 
-  return parse(applied);
+    const wholeStringMatch = value.match(/^([$_]){(.+?)}$/);
+    if (wholeStringMatch) {
+      // the entire field is the variable, replace the whole value and maintain types
+      logger.debug(
+        `interpolateVariables: Found whole-field interpolation ${value}, replacing with exact variable`,
+        wholeStringMatch
+      );
+      (obj as Serializable)[key] = get(waml.variables, wholeStringMatch[2]);
+      return;
+    }
+
+    const applied = value.replace(
+      /([$_!]){(.+?)}/g,
+      (original, type, content) => {
+        let value = original;
+        if (type === '$') {
+          // variable interpolation
+          value = String(get(waml.variables, content));
+        } else if (type === '_') {
+          // self interpolation
+          value = String(get(waml, content));
+        } else {
+          // escaping
+          value = content;
+        }
+
+        if (value !== original) {
+          logger.debug(
+            `interpolateVariables: Found interpolation ${original}, replaced with ${value}`
+          );
+        } else {
+          logger.debug(
+            `interpolateVariables: Found interpolation ${original}, but couldn't replace`
+          );
+        }
+
+        return value;
+      }
+    );
+
+    // technically we could be string-indexing an array here, but that seems to work fine
+    (obj as Serializable)[key] = applied;
+  });
+
+  return waml;
 }
 
 export function compile<T extends WeakAura>(waml: WAML, cwd: string): T {

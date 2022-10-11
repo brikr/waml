@@ -1,0 +1,25 @@
+---
+name: Interpolato
+type: text
+variables:
+  text: I am text
+  number: 0
+  object:
+    key: value
+  array:
+    - texto
+    - key: value
+
+wa:
+  d:
+    # these fields don't actually exist but this WA is never meant to be jammed into game
+    text: ${text}
+    inlineText: the text says ${text}
+    number: ${number}
+    inlineNumber: the number is ${number}
+    object: ${object}
+    array: ${array}
+    otherArray:
+      - ${number}
+      - the text says ${text}
+      - ${object}
