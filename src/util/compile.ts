@@ -1,3 +1,4 @@
+import {WAMLType} from './../types/waml';
 import {logger} from './logger';
 import {WAML} from '../types/waml';
 import {WeakAura} from '../types/weakauras';
@@ -9,7 +10,17 @@ import {deepForEach} from './deep-for-each';
 import {Serializable} from '../types/serializable';
 
 function validate(waml: WAML) {
-  // TODO :)
+  // from and type are mutually exclusive (also count the wa data for type)
+  if (Boolean(waml.type || waml.wa?.d?.regionType) === Boolean(waml.from)) {
+    throw new Error(
+      'WAML validation: "from" and "type" fields are mutually exclusive'
+    );
+  }
+
+  // type must be valid if provided
+  if (waml.type && !Object.values(WAMLType).includes(waml.type)) {
+    throw new Error(`WAML validation: unrecognized type ${waml.type}`);
+  }
 }
 
 function applyTemplate(waml: WAML, cwd?: string): WAML {

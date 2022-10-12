@@ -1,5 +1,21 @@
 import {Serializable} from './serializable';
 
+export enum WASingleRegionType {
+  MODEL = 'model',
+  PROGRESS_BAR = 'aurabar',
+  PROGRESS_TEXTURE = 'progresstexture',
+  STOP_MOTION = 'stopmotion',
+  TEXT = 'text',
+  TEXTURE = 'texture',
+}
+
+export enum WAGroupRegionType {
+  DYNAMIC_GROUP = 'dynamicgroup',
+  GROUP = 'group',
+}
+
+export type WARegionType = WASingleRegionType | WAGroupRegionType;
+
 // can extend Serializable later if there's specific fields we want to give known types to
 export interface WeakAura extends Serializable {
   // addon version string when the aura was made
@@ -20,26 +36,15 @@ export interface GroupWeakAura extends WeakAura {
 export interface WeakAuraData extends Serializable {
   id: string;
   uid?: string;
-  regionType: RegionType;
+  regionType: WARegionType;
 
   // present if this weakaura is part of a nested group
   parent?: string;
 }
 
 export interface GroupWeakAuraData extends WeakAuraData {
-  regionType: GroupRegionType;
+  regionType: WAGroupRegionType;
 
   // present if this weakaura is part of a nested group
   controlledChildren?: string[];
 }
-
-export type RegionType =
-  | GroupRegionType
-  | 'model'
-  | 'aurabar'
-  | 'progresstexture'
-  | 'stopmotion'
-  | 'text'
-  | 'texture';
-
-export type GroupRegionType = 'dynamicgroup' | 'group';

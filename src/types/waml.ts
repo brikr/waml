@@ -1,27 +1,22 @@
 import {Serializable} from './serializable';
-import {WeakAura, RegionType, GroupWeakAura} from './weakauras';
+import {WeakAura, GroupWeakAura} from './weakauras';
 
-export type Type =
-  | GroupType
-  | 'model'
-  | 'progress-bar'
-  | 'progress-texture'
-  | 'stop-motion'
-  | 'text'
-  | 'texture';
+export enum WAMLSingleType {
+  MODEL = 'model',
+  PROGRESS_BAR = 'progress-bar',
+  PROGRESS_TEXTURE = 'progress-texture',
+  STOP_MOTION = 'stop-motion',
+  TEXT = 'text',
+  TEXTURE = 'texture',
+}
 
-export type GroupType = 'dynamic-group' | 'group';
+export enum WAMLGroupType {
+  DYNAMIC_GROUP = 'dynamic-group',
+  GROUP = 'group',
+}
 
-export const TYPE_TO_REGION_TYPE: {[key in Type]: RegionType} = {
-  'dynamic-group': 'dynamicgroup',
-  group: 'group',
-  model: 'model',
-  'progress-bar': 'aurabar',
-  'progress-texture': 'progresstexture',
-  'stop-motion': 'stopmotion',
-  text: 'text',
-  texture: 'texture',
-};
+export type WAMLType = WAMLSingleType | WAMLGroupType;
+export const WAMLType = {...WAMLSingleType, ...WAMLGroupType};
 
 // the contents of a .yml file
 export interface WAML extends Serializable {
@@ -37,7 +32,7 @@ export interface WAML extends Serializable {
   // template file that we are importing from
   from?: string;
   // weakaura type. under the hood, it's importing from a built-in template
-  type?: Type;
+  type?: WAMLType;
 
   // raw weakaura data, or partial weakaura data
   wa?: Partial<WeakAura>;
@@ -46,7 +41,7 @@ export interface WAML extends Serializable {
 export interface GroupWAML extends WAML {
   children?: Array<WAML>;
 
-  type?: GroupType;
+  type?: WAMLGroupType;
 
   wa?: Partial<GroupWeakAura>;
 }
