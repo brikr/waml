@@ -33,6 +33,7 @@
     "commander": "^9.4.0",
     "lodash": "^4.17.21",
     "node-weakauras-parser": "^3.2.0",
-    "yaml": "^2.1.1"
+    "yaml": "^2.1.1",
+    "yup": "^0.32.11"
   }
 }

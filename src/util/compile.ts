@@ -1,5 +1,5 @@
 import {logger} from './logger';
-import {WAML} from '../types/waml';
+import {WAML, wamlSchema} from '../types/waml';
 import {WeakAura} from '../types/weakauras';
 import {get, merge, set} from 'lodash';
 import {parse, parseFromFile, stringify} from './serialize';
@@ -9,7 +9,7 @@ import {deepForEach} from './deep-for-each';
 import {Serializable} from '../types/serializable';
 
 function validate(waml: WAML) {
-  // TODO :)
+  wamlSchema.validate(waml);
 }
 
 function applyTemplate(waml: WAML, cwd?: string): WAML {
@@ -153,7 +153,7 @@ export function compile<T extends WeakAura>(waml: WAML, cwd: string): T {
 }
 
 export function decompile(wa: WeakAura): WAML {
-  return {
+  return wamlSchema.cast({
     wa,
-  };
+  });
 }

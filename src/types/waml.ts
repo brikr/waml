@@ -1,5 +1,46 @@
+import {array, InferType, object, ObjectSchema, string} from 'yup';
+import {waSchema, groupWaSchema, GroupWeakAura, WeakAura} from './weakauras';
+import {partial} from './yup-partial';
 import {Serializable} from './serializable';
-import {WeakAura, RegionType, GroupWeakAura} from './weakauras';
+
+const groupTypes = ['dynamic-group', 'group'];
+const types = [
+  ...groupTypes,
+  'model',
+  'progress-bar',
+  'progress-texture',
+  'stop-motion',
+  'text',
+  'texture',
+];
+
+export const wamlSchema: ObjectSchema<WAML> = object({
+  name: string().optional(),
+  uid: string().optional(),
+
+  variables: object().optional(),
+
+  from: string().when('type', {
+    is: (value: string) => Boolean(value),
+    then: schema =>
+      schema.oneOf([undefined], 'from and type are mutually exclusive'),
+    otherwise: schema => schema.required(),
+  }),
+  type: string().oneOf(types).optional(),
+
+  wa: partial(waSchema),
+});
+
+export const groupWamlSchema = wamlSchema.shape({
+  children: array().of(wamlSchema).required(),
+
+  type: string().oneOf(groupTypes).optional(),
+
+  wa: groupWaSchema.optional(),
+});
+
+// export type WAML = InferType<typeof wamlSchema>;
+// export type GroupWAML = InferType<typeof groupWamlSchema>;
 
 export type Type =
   | GroupType
@@ -11,17 +52,6 @@ export type Type =
   | 'texture';
 
 export type GroupType = 'dynamic-group' | 'group';
-
-export const TYPE_TO_REGION_TYPE: {[key in Type]: RegionType} = {
-  'dynamic-group': 'dynamicgroup',
-  group: 'group',
-  model: 'model',
-  'progress-bar': 'aurabar',
-  'progress-texture': 'progresstexture',
-  'stop-motion': 'stopmotion',
-  text: 'text',
-  texture: 'texture',
-};
 
 // the contents of a .yml file
 export interface WAML extends Serializable {
