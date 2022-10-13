@@ -2,6 +2,7 @@
   "name": "weakauras-markup-language",
   "version": "1.0.0",
   "description": "A programmatic way to define WeakAuras for World of Warcraft",
+  "repository": "github:brikr/waml",
   "bin": {
     "waml": "bin/waml"
   },
@@ -16,7 +17,7 @@
     "test": "jest",
     "watch": "nodemon -L --watch \"src/**\" --ext \"ts,yml\" --exec \"npm run build\""
   },
-  "author": "",
+  "author": "brikr",
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^29.0.3",
