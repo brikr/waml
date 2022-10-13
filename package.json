@@ -1,7 +1,7 @@
 {
-  "name": "waml",
+  "name": "weakauras-markup-language",
   "version": "1.0.0",
-  "description": "",
+  "description": "A programmatic way to define WeakAuras for World of Warcraft",
   "bin": {
     "waml": "bin/waml"
   },
