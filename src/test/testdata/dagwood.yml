@@ -18,6 +18,8 @@ children:
         children:
           - name: dagwood-group-dynamic-group-text
             type: text
+  - name: dagwood-icon
+    type: icon
   - name: dagwood-model
     type: model
   - name: dagwood-progress-bar

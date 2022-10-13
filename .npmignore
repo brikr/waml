@@ -1,0 +1,9 @@
+src/
+.editorconfig
+.eslintignore
+.eslintrc.json
+.gitattributes
+.gitignore
+.prettierrc.js
+jest.config.js
+tsconfig.json

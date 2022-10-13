@@ -15,6 +15,7 @@
     "fix": "gts fix",
     "lint": "gts lint",
     "test": "jest",
+    "pub": "rm -rf build/ && npm run build && npm publish",
     "watch": "nodemon -L --watch \"src/**\" --ext \"ts,yml\" --exec \"npm run build\""
   },
   "author": "brikr",

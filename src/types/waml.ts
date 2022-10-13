@@ -2,6 +2,7 @@ import {Serializable} from './serializable';
 import {WeakAura, GroupWeakAura} from './weakauras';
 
 export enum WAMLSingleType {
+  ICON = 'icon',
   MODEL = 'model',
   PROGRESS_BAR = 'progress-bar',
   PROGRESS_TEXTURE = 'progress-texture',

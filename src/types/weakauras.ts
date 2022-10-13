@@ -1,6 +1,7 @@
 import {Serializable} from './serializable';
 
 export enum WASingleRegionType {
+  ICON = 'icon',
   MODEL = 'model',
   PROGRESS_BAR = 'aurabar',
   PROGRESS_TEXTURE = 'progresstexture',
