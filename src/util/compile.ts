@@ -23,35 +23,6 @@ function validate(waml: WAML) {
   }
 }
 
-function applyTemplate(waml: WAML, cwd?: string): WAML {
-  if (!cwd) {
-    cwd = resolve('.');
-  }
-  let template: WAML;
-  if (waml.from) {
-    const templateFile = resolve(`${cwd}/${waml.from}`);
-    template = parseFromFile(templateFile);
-    template = applyTemplate(template, dirname(templateFile));
-  } else if (waml.type) {
-    template = parseFromFile(
-      resolve(__dirname, `../templates/${waml.type}.yml`)
-    );
-  } else {
-    return waml;
-  }
-
-  // NOTE: idk why i had this before, but keeping it here and commented in case an infinite loops pops up or something
-  // remove importing fields
-  // delete template.from;
-  // delete template.type;
-  // delete waml.from;
-  // delete waml.type;
-
-  const applied = merge(template, waml);
-  logger.debug('WAML after applying template layer', applied);
-  return applied;
-}
-
 function interpolateVariables(waml: WAML): WAML {
   deepForEach(waml, (obj, key, value) => {
     if (typeof value !== 'string') {
@@ -86,29 +57,30 @@ function interpolateVariables(waml: WAML): WAML {
     const applied = value.replace(
       /([$_!]){(.+?)}/g,
       (original, type, content) => {
-        let value = original;
+        let value: SerializableValue;
         if (type === '$') {
           // variable interpolation
-          value = String(get(waml.variables, content));
+          value = get(waml.variables, content);
         } else if (type === '_') {
           // self interpolation
-          value = String(get(waml, content));
+          value = get(waml, content);
         } else {
           // escaping
           value = content;
         }
 
-        if (value !== original) {
+        // (value was stringified)
+        if (value !== undefined) {
           logger.debug(
             `interpolateVariables: Found interpolation ${original}, replaced with ${value}`
           );
+          return String(value);
         } else {
           logger.debug(
             `interpolateVariables: Found interpolation ${original}, but couldn't replace`
           );
+          return original;
         }
-
-        return value;
       }
     );
 
@@ -119,13 +91,49 @@ function interpolateVariables(waml: WAML): WAML {
   return waml;
 }
 
+// if the waml inherits from something (from/type are defined), then compile that child and apply this waml's fields on
+// top of it
+function resolveInheritance(waml: WAML, cwd: string): WAML {
+  let templateWa: WeakAura;
+  if (waml.from) {
+    // inheriting from another waml file; load it in, compile it (which executes this function recursively as well),
+    // and get the final weakaura data
+    const templateFile = resolve(`${cwd}/${waml.from}`);
+    logger.debug(
+      'resolveInheritance: resolved templateFile location',
+      cwd,
+      '/',
+      waml.from
+    );
+    const template = parseFromFile(templateFile);
+    templateWa = compile(template, dirname(templateFile));
+  } else if (waml.type) {
+    const template = parseFromFile(
+      resolve(__dirname, `../templates/${waml.type}.yml`)
+    );
+    // casting here since we loaded from a built-in template; we know 'wa' is good
+    templateWa = template.wa as WeakAura;
+  } else {
+    // no inheritance
+    return waml;
+  }
+
+  const mergedWa = merge(templateWa, waml.wa);
+  waml.wa = mergedWa;
+
+  // delete waml.from;
+  // delete waml.type;
+
+  return waml;
+}
+
 export function compile<T extends WeakAura>(waml: WAML, cwd: string): T {
   validate(waml);
 
-  logger.debug('WAML before applying templates', waml);
-
   // apply templates all the way down
-  waml = applyTemplate(waml, cwd);
+  logger.debug('compile: WAML before applying templates', waml, cwd);
+  waml = resolveInheritance(waml, cwd);
+  logger.debug('compile: WAML after applying templates', waml, cwd);
 
   if (!waml.wa?.d) {
     // we should have weakauras data by now if everything is valid
@@ -144,7 +152,11 @@ export function compile<T extends WeakAura>(waml: WAML, cwd: string): T {
 
   // compile and insert children
   if (isGroupWAML(waml) && waml.children) {
-    logger.debug('This WAML is a group', waml.name, waml.children.length);
+    logger.debug(
+      'compile: This WAML is a group',
+      waml.name,
+      waml.children.length
+    );
     waml.wa.c ??= [];
 
     for (const childWaml of waml.children) {

@@ -31,7 +31,7 @@ export function parse<T extends WAML>(s: string): T {
 }
 
 export function parseFromFile<T extends WAML>(file: string): T {
-  logger.debug('Parsing template from file', file);
+  logger.debug('parseFromFile: Parsing template from file', file);
   const yaml = readFileSync(file, {encoding: 'utf8', flag: 'r'}).trim();
   return parse(yaml);
 }
