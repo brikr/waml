@@ -7,7 +7,7 @@ import {parseFromFile} from './serialize';
 import {dirname, resolve} from 'path';
 import {isGroupWAML, isGroupWeakAura} from './is-group';
 import {deepForEach} from './deep-for-each';
-import {Serializable} from '../types/serializable';
+import {Serializable, SerializableValue} from '../types/serializable';
 
 function validate(waml: WAML) {
   // from and type are mutually exclusive (also count the wa data for type)
@@ -29,12 +29,12 @@ function applyTemplate(waml: WAML, cwd?: string): WAML {
   }
   let template: WAML;
   if (waml.from) {
-    const templateFile = resolve(`${cwd}/${encodeURIComponent(waml.from)}`);
+    const templateFile = resolve(`${cwd}/${waml.from}`);
     template = parseFromFile(templateFile);
     template = applyTemplate(template, dirname(templateFile));
   } else if (waml.type) {
     template = parseFromFile(
-      resolve(__dirname, `../templates/${encodeURIComponent(waml.type)}.yml`)
+      resolve(__dirname, `../templates/${waml.type}.yml`)
     );
   } else {
     return waml;
@@ -62,16 +62,23 @@ function interpolateVariables(waml: WAML): WAML {
     const wholeStringMatch = value.match(/^([$_]){(.+?)}$/);
     if (wholeStringMatch) {
       // the entire field is the variable, replace the whole value and maintain types
-      logger.debug(
-        `interpolateVariables: Found whole-field interpolation ${value}, replacing with exact variable`
-      );
       const [original, type, content] = wholeStringMatch;
+
+      let variableValue: SerializableValue;
       if (type === '$') {
         // variable insertion
-        (obj as Serializable)[key] = get(waml.variables, content);
+        variableValue = get(waml.variables, content);
       } else if (type === '_') {
         // self insertion
-        (obj as Serializable)[key] = get(waml, content);
+        variableValue = get(waml, content);
+      }
+
+      if (variableValue !== undefined) {
+        logger.debug(
+          `interpolateVariables: Found whole-field interpolation ${original}, replacing with exact variable`,
+          variableValue
+        );
+        (obj as Serializable)[key] = variableValue;
       }
       return;
     }

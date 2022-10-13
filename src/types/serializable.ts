@@ -1,7 +1,12 @@
 export type Atom = string | number | boolean | null | undefined;
 
+export type SerializableValue =
+  | Atom
+  | Serializable
+  | Array<Atom | Serializable>;
+
 export interface Serializable {
-  [key: string]: Atom | Serializable | Array<Atom | Serializable>;
+  [key: string]: SerializableValue;
 }
 
 export function isAtom(a: unknown): a is Atom {
