@@ -3,7 +3,7 @@ import {logger} from './logger';
 import {WAML} from '../types/waml';
 import {WeakAura} from '../types/weakauras';
 import {get, merge, set} from 'lodash';
-import {parse, parseFromFile, stringify} from './serialize';
+import {parseFromFile} from './serialize';
 import {dirname, resolve} from 'path';
 import {isGroupWAML, isGroupWeakAura} from './is-group';
 import {deepForEach} from './deep-for-each';
