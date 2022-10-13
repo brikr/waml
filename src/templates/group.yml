@@ -7,6 +7,7 @@ wa:
   d:
     id: TEMPLATE_NAME
     regionType: group
+    internalVersion: 53
 
     # The fields below are what WeakAuras will generate when this aura is imported. They might serve as a useful
     # reference when making auras
@@ -44,7 +45,6 @@ wa:
     #       subeventPrefix: SPELL
     #     untrigger: []
     # borderEdge: Square Full White
-    # internalVersion: 53
     # anchorPoint: CENTER
     # animation:
     #   start:

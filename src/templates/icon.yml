@@ -6,6 +6,7 @@ wa:
   d:
     id: TEMPLATE_NAME
     regionType: icon
+    internalVersion: 53
 
     # The fields below are what WeakAuras will generate when this aura is imported. They might serve as a useful
     # reference when making auras
@@ -30,7 +31,6 @@ wa:
     #       subeventPrefix: SPELL
     #     untrigger: []
     #   activeTriggerMode: -10
-    # internalVersion: 53
     # keepAspectRatio: false
     # selfPoint: CENTER
     # desaturate: false

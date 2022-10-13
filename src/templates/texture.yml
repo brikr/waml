@@ -6,6 +6,7 @@ wa:
   d:
     id: TEMPLATE_NAME
     regionType: texture
+    internalVersion: 53
 
     # The fields below are what WeakAuras will generate when this aura is imported. They might serve as a useful
     # reference when making auras
@@ -45,7 +46,6 @@ wa:
     #   init: []
     # texture: Interface\Addons\WeakAuras\PowerAurasMedia\Auras\Aura3
     # frameStrata: 1
-    # internalVersion: 53
     # selfPoint: CENTER
     # animation:
     #   start:

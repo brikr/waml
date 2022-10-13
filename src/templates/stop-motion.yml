@@ -6,6 +6,7 @@ wa:
   d:
     id: TEMPLATE_NAME
     regionType: stopmotion
+    internalVersion: 53
 
     # The fields below are what WeakAuras will generate when this aura is imported. They might serve as a useful
     # reference when making auras
@@ -28,7 +29,6 @@ wa:
     #   - 0.5
     # customForegroundRows: 16
     # frameRate: 15
-    # internalVersion: 53
     # selfPoint: CENTER
     # customForegroundFileHeight: 0
     # customBackgroundRows: 16

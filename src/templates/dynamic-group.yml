@@ -7,6 +7,7 @@ wa:
   d:
     id: TEMPLATE_NAME
     regionType: dynamicgroup
+    internalVersion: 53
 
     # The fields below are what WeakAuras will generate when this aura is imported. They might serve as a useful
     # reference when making auras
@@ -62,7 +63,6 @@ wa:
     # sort: none
     # selfPoint: TOP
     # rotation: 0
-    # internalVersion: 53
     # constantFactor: RADIUS
     # authorOptions: []
     # borderOffset: 4

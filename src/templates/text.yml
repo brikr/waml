@@ -6,6 +6,7 @@ wa:
   d:
     id: TEMPLATE_NAME
     regionType: text
+    internalVersion: 53
 
     # The fields below are what WeakAuras will generate when this aura is imported. They might serve as a useful
     # reference when making auras
@@ -92,4 +93,3 @@ wa:
     #   - 1
     # fixedWidth: 200
     # information: []
-    # internalVersion: 53
