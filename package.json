@@ -1,6 +1,6 @@
 {
   "name": "weakauras-markup-language",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A programmatic way to define WeakAuras for World of Warcraft",
   "repository": "github:brikr/waml",
   "bin": {
