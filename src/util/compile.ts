@@ -95,6 +95,7 @@ function interpolateVariables(waml: WAML): WAML {
 // top of it
 function resolveInheritance(waml: WAML, cwd: string): WAML {
   let templateWa: WeakAura;
+  let templateVariables: WAML['variables'];
   if (waml.from) {
     // inheriting from another waml file; load it in, compile it (which executes this function recursively as well),
     // and get the final weakaura data
@@ -107,6 +108,7 @@ function resolveInheritance(waml: WAML, cwd: string): WAML {
     );
     const template = parseFromFile(templateFile);
     templateWa = compile(template, dirname(templateFile));
+    templateVariables = template.variables;
   } else if (waml.type) {
     const template = parseFromFile(
       resolve(__dirname, `../templates/${waml.type}.yml`)
@@ -120,6 +122,9 @@ function resolveInheritance(waml: WAML, cwd: string): WAML {
 
   const mergedWa = merge(templateWa, waml.wa);
   waml.wa = mergedWa;
+
+  const mergedVariables = merge(templateVariables, waml.variables);
+  waml.variables = mergedVariables;
 
   // delete waml.from;
   // delete waml.type;
